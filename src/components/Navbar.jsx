@@ -3,8 +3,14 @@ import { navLists } from "../constants"
 
 const Navbar = () => {
   return (
+    // width of the full page, vertical padding 5px, horizontal padding 10px for small devices, display type flex, aligns child with space between them, vertically center 
+    // display type, width full, self defined class
+    // 
+    // display type flex, allows this section to take all the space, if the max screen size is small, hide this div 
+    // 
     <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center">
         <nav className="flex w-full screen-max-witdh">
+            
             <img src={appleImg} alt = "Apple" width={14} height={18} />
 
             <div className = "flex flex-1 justify-center max-sm:hidden">
