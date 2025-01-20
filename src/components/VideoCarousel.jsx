@@ -7,7 +7,11 @@ import { useGSAP } from '@gsap/react';
 
 const VideoCarousel = () => {
   const videoRef = useRef([]);
+
+  // this is the white loading bar 
   const videoSpanRef = useRef([]);
+
+  // this is the background bar 
   const videoDivRef = useRef([]);
 
   const [video , setVideo] = useState( 
@@ -73,16 +77,17 @@ const VideoCarousel = () => {
         onUpdate: () => {
           // gets the progress of the animation
           const progress = Math.ceil(anim.progress() * 100);
-          console.log("progress", progress);
 
           if ( progress != currentProgress ) {
             currentProgress = progress;
           
 
+            // this is for the base or the background
             gsap.to(videoDivRef.current[videoId] , {
               width: window.innerWidth < 760 ? "10vw" : window.innerWidth < 1200 ? "10vw" : "4vw"
             })
 
+            // this is where the actual progress bar is 
             gsap.to( span[videoId] , {
               width: `${currentProgress}%`,
               backgroundColor: "white"
@@ -178,12 +183,9 @@ const VideoCarousel = () => {
                     playsInline={true}
                     preload='auto'
                     muted
-                    className= {`${list.id=== 2 && 'translate-x-44'}
-                    pointer-events-none
-                    `}
+                    className= {`${list.id=== 2 && 'translate-x-44'} pointer-events-none`}
                     ref = { (el) => {videoRef.current[i] = el}}
                     onEnded={ () => 
-                    
                         i !== 3 ? 
                         handleProcess("video-end",i) :
                         handleProcess("video-last")
