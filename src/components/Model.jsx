@@ -66,7 +66,7 @@ function Model() {
                     <ModelView
                     index = {2}
                     groupRef = {large}
-                    gsapType = "view1"
+                    gsapType = "view2"
                     controlRef = {cameraControlLarge}
                     setRotationState = {setLargeRotation}
                     item = {model}
